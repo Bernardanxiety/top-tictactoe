@@ -11,39 +11,14 @@
     [2, 4, 6],
   ];
   let buttons = document.querySelectorAll(".cell");
-
-  function addEventListeners() {
-    buttons.forEach((button) => button.addEventListener("click", gowno));
-  }
-  function addMove(e) {
-    let index = e.target.id;
-    if (moves[index][0] === undefined) {
-      moves[index][0] = "X";
+  let player1 = (function () {
+    let moves = ["X", "O"];
+    let name = "Player";
+    let move = moves[Math.floor(Math.random() * 2)];
+    function play() {
+      player2.availableMoves = 1;
+      return move;
     }
-  }
-  function render() {
-    moves.forEach((move) => {
-      if (move[0] !== undefined) {
-        let index = moves.indexOf(move);
-        const cell = document.getElementById(index);
-        cell.textContent = move[0];
-      }
-    });
-  }
-  function checkWinner() {
-    winningMoves.forEach((winningMove) => {
-      let a = moves[winningMove[0]][0];
-      let b = moves[winningMove[1]][0];
-      let c = moves[winningMove[2]][0];
-      if (a === "X" && b === "X" && c === "X") {
-        console.log(winningMove);
-      }
-    });
-  }
-  function gowno(e) {
-    addMove(e);
-    render();
-    checkWinner();
-  }
-  addEventListeners();
+    return { name, move, play };
+  })();
 })();
