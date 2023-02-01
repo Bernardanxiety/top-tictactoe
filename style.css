@@ -22,10 +22,18 @@ body {
   margin: auto;
 }
 
+#result-div {
+  color: #fff;
+  display: grid;
+  gap: 1em;
+  text-align: center;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
 .result-div {
   color: #fff;
   display: flex;
-  gap: 2em;
+  justify-content: space-between;
   align-items: baseline;
   margin-bottom: 1rem;
 }

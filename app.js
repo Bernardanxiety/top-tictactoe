@@ -130,7 +130,7 @@
     moves = [[], [], [], [], [], [], [], [], []];
     render();
     buttons.forEach((btn) => btn.removeEventListener("click", reset));
-    playerMoveDiv.textContent = `Your move: ${player.move}`;
+    playerMoveDiv.textContent = `You: ${player.move}`;
     cpuMoveDiv.textContent = `CPU: ${cpu.move}`;
     addEventListeners();
   }
