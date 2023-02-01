@@ -12,10 +12,23 @@
     [2, 4, 6],
   ];
   //   DOM
-  let buttons = document.querySelectorAll(".cell");
-  let h2 = document.getElementById("result");
-  let playerMoveDiv = document.getElementById("playerMove");
-  let cpuMoveDiv = document.getElementById("cpuMove");
+  const buttons = document.querySelectorAll(".cell");
+  const h2 = document.getElementById("result");
+  const playerMoveDiv = document.getElementById("playerMove");
+  const cpuMoveDiv = document.getElementById("cpuMove");
+  const board = document.querySelector(".board");
+
+  const boardObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => {
+      const cells = document.querySelectorAll(".cell");
+      let width = Math.floor(entry.contentRect.width);
+      cells.forEach((cell) =>
+        cell.setAttribute("style", `font-size: ${width / 4}px`)
+      );
+    });
+  });
+
+  boardObserver.observe(board);
 
   const player = (function () {
     const moves = ["X", "O"];

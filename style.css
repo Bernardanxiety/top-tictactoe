@@ -42,7 +42,6 @@ body {
   border: 1px solid grey;
   display: grid;
   place-items: center;
-  font-size: 5rem;
 }
 
 h1 {
